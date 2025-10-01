@@ -1,22 +1,25 @@
 'use strict';
 
+'use strict';
+
 document.addEventListener('DOMContentLoaded', () => {
   const gallery = document.querySelector('.gallery');
   const largeImg = document.querySelector('#largeImg');
 
   if (gallery && largeImg) {
     gallery.addEventListener('click', (e) => {
-      e.preventDefault();
-
       const target = e.target;
 
-      // Якщо клікнули на <a> або <img> у <a>
-      if (target.tagName === 'A' || target.closest('a')) {
-        const link = target.tagName === 'A' ? target : target.closest('a');
-        const href = link.getAttribute('href');
+      const link = target.closest('a');
 
-        // Формуємо абсолютний URL (Cypress очікує http://localhost:3001/...)
-        largeImg.src = new URL(href, window.location.origin).href;
+      if (link) {
+        e.preventDefault();
+
+        const href = link.href;
+
+        if (href) {
+          largeImg.src = href;
+        }
       }
     });
   }
