@@ -1,0 +1,2 @@
+document.addEventListener("DOMContentLoaded",function(){var e=document.querySelector(".gallery"),t=document.querySelector("#largeImg");e&&t&&e.addEventListener("click",function(e){e.preventDefault();var n=e.target;if("A"===n.tagName||n.closest("a")){var r=("A"===n.tagName?n:n.closest("a")).getAttribute("href");t.src=new URL(r,window.location.origin).href}})});
+//# sourceMappingURL=index.f4bd3a4d.js.map
